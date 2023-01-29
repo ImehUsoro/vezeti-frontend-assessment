@@ -11,13 +11,15 @@ interface ProductProps {
 
 const Header = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
-  // const [searchInput, setSearchInput] = useState<string>("");
-  const { searchInput, setSearchInput } = useContext(ProductsContext);
+  const { searchInput, setSearchInput, cartItems } =
+    useContext(ProductsContext);
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget;
     setSearchInput(value);
   };
+
+  // console.log(cartItems.length);
 
   return (
     <header className="spaceOut px-10 py-8">
@@ -25,7 +27,7 @@ const Header = () => {
         <img src="/images/cart_logo.png" alt="" />
         <p className="font-raleway text-3xl cursor-pointer">Vezeti Store</p>
       </div>
-      <div className="center gap-4 rounded-lg px-4 py-1 bg-ter border border-secondary">
+      <div className="center gap-4 rounded-lg px-4 py-1 bg-ter border border-secondary ">
         <input
           type="text"
           onChange={handleChange}

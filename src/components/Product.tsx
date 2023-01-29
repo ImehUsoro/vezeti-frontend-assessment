@@ -12,18 +12,22 @@ interface ProductProps {
 
 const Product = ({ product }: ProductProps) => {
   const { name, price, image } = product;
-  const { selectedProduct, setSelectedProduct } = useContext(ProductsContext);
+  const { selectedProduct, setSelectedProduct, setShowProductModal } =
+    useContext(ProductsContext);
 
   //   console.log(selectedProduct);
 
   return (
     <div
-      className="shadow-md center flex flex-col center rounded-xl hover:shadow-xl cursor-pointer transition-all duration-200 select-none bg-white"
-      onClick={() => setSelectedProduct(product)}
+      className="shadow-md center flex flex-col center rounded-xl hover:shadow-xl cursor-pointer transition-all duration-200 select-none bg-white max-h-[360px]"
+      onClick={() => {
+        setSelectedProduct(product);
+        setShowProductModal(true);
+      }}
     >
       <img src={image} alt="" className="w-96 h-80 object-cover rounded-t-xl" />
       <p>{name}</p>
-      <p>₦ {price.toLocaleString()}</p>
+      <p className="font-bold">₦ {price.toLocaleString()}</p>
     </div>
   );
 };

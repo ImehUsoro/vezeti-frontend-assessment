@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require("tailwindcss/colors");
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -8,6 +9,7 @@ module.exports = {
       raleway: ["Raleway", "sans-serif"],
     },
     colors: {
+      ...colors,
       transparent: "transparent",
       current: "currentColor",
       black: "#000",

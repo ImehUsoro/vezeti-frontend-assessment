@@ -18,6 +18,8 @@ const ProductsContext = createContext({
   setCartItems: (products: any) => {},
   searchInput: "",
   setSearchInput: (input: string) => {},
+  showProductModal: false,
+  setShowProductModal: (input: boolean) => {},
 });
 
 export default ProductsContext;

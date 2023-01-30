@@ -1,20 +1,18 @@
 import { createContext } from "react";
-interface ProductProps {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-}
+import { ProductProps } from "../typings/types";
 
 const ProductsContext = createContext({
+  currency: "₦",
+  setCurrency: (currency: string) => {},
   selectedProduct: {
     id: 0,
     name: "",
     price: 0,
     image: "",
   },
-  setSelectedProduct: (products: any) => {},
-  cartItems: [],
+  setSelectedProduct: (products: ProductProps) => {},
+  // cartItems: [] as ProductProps[],
+  cartItems: [] as any,
   setCartItems: (products: any) => {},
   searchInput: "",
   setSearchInput: (input: string) => {},

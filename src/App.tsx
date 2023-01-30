@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import ProductModal from "./components/ProductModal";
 import Products from "./components/Products";
 import ProductsContext from "./context/ProductContext";
-import { products } from "./ProductData/ProductData";
-interface ProductProps {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-}
 
 function App() {
+  const [currency, setCurrency] = useState("$");
   const [selectedProduct, setSelectedProduct] = useState({
     id: 0,
     name: "",
@@ -20,13 +14,15 @@ function App() {
     image: "",
   });
 
-  const [cartItems, setCartItems] = useState<any>([]);
+  const [cartItems, setCartItems] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [showProductModal, setShowProductModal] = useState(false);
 
   return (
     <ProductsContext.Provider
       value={{
+        currency,
+        setCurrency,
         selectedProduct,
         setSelectedProduct,
         cartItems,
@@ -42,9 +38,15 @@ function App() {
           showProductModal ? "overflow-hidden" : ""
         }`}
       >
-        <Header />
-        <Products />
-        <Footer />
+        <div
+          className={`flex flex-col flex-1 ${
+            showProductModal ? "opacity-60" : ""
+          }`}
+        >
+          <Header />
+          <Products />
+          <Footer />
+        </div>
         {showProductModal && <ProductModal />}
       </div>
     </ProductsContext.Provider>

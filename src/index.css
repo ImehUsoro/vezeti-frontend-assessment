@@ -17,4 +17,7 @@ body {
   .spaceOut {
     @apply flex justify-between items-center;
   }
+  .currencyStyle {
+    @apply hover:shadow-md px-6 cursor-pointer transition-all ease-out duration-500;
+  }
 }

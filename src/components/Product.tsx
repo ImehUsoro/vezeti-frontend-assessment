@@ -1,18 +1,14 @@
 import React, { useContext } from "react";
 import ProductsContext from "../context/ProductContext";
+import { ProductProps } from "../typings/types";
 
-interface ProductProps {
-  product: {
-    id: number;
-    name: string;
-    price: number;
-    image: string;
-  };
+interface Props {
+  product: ProductProps;
 }
 
-const Product = ({ product }: ProductProps) => {
+const Product = ({ product }: Props) => {
   const { name, price, image } = product;
-  const { selectedProduct, setSelectedProduct, setShowProductModal } =
+  const { setSelectedProduct, setShowProductModal, currency } =
     useContext(ProductsContext);
 
   //   console.log(selectedProduct);
@@ -27,7 +23,23 @@ const Product = ({ product }: ProductProps) => {
     >
       <img src={image} alt="" className="w-96 h-80 object-cover rounded-t-xl" />
       <p>{name}</p>
-      <p className="font-bold">₦ {price.toLocaleString()}</p>
+      {currency === "₦" ? (
+        <p className="font-bold">₦ {price.toLocaleString()}</p>
+      ) : currency === "$" ? (
+        <p className="font-bold">
+          $ {(price / 460).toFixed(2).toLocaleString()}
+        </p>
+      ) : currency === "£" ? (
+        <p className="font-bold">
+          £ {(price / 570).toFixed(2).toLocaleString()}
+        </p>
+      ) : currency === "€" ? (
+        <p className="font-bold">
+          € {(price / 500).toFixed(2).toLocaleString()}
+        </p>
+      ) : (
+        <p className="font-bold">¥ {(price / 3).toFixed(2).toLocaleString()}</p>
+      )}
     </div>
   );
 };

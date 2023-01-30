@@ -9,13 +9,9 @@ interface ProductProps {
 }
 
 const ProductModal = () => {
-  const {
-    selectedProduct,
-    setSelectedProduct,
-    setShowProductModal,
-    setCartItems,
-  } = useContext(ProductsContext);
-  const { name, price, image } = selectedProduct;
+  const { selectedProduct, setShowProductModal, setCartItems } =
+    useContext(ProductsContext);
+  const { name, price } = selectedProduct;
 
   return (
     <div className="fixed top-1/2 left-1/2 -translate-y-2/4 -translate-x-2/4 bg-white flex flex-col gap-5 max-w-full max-h-full rounded-lg px-8 py-4 z-10 shadow-lg">

@@ -7,14 +7,14 @@ interface Products {
 export const products: Products[] = [
   {
     id: 1,
-    name: "MacBook Pro 2022",
+    name: "MacBook Pro 2022 512GB",
     price: 980000,
     image: "/images/cart_item.jpeg",
   },
   {
     id: 2,
-    name: "Luxury Chair",
-    price: 55000,
+    name: "Gaming Chair Pro",
+    price: 180000,
     image: "/images/cart_item.jpeg",
   },
   {
@@ -25,7 +25,7 @@ export const products: Products[] = [
   },
   {
     id: 4,
-    name: "iPhone 14 Pro Max",
+    name: "iPhone 14 Pro Max 256GB",
     price: 1150000,
     image: "/images/cart_item.jpeg",
   },
@@ -37,32 +37,32 @@ export const products: Products[] = [
   },
   {
     id: 6,
-    name: "Product 6",
-    price: 600,
+    name: "Apple Magic Keyboard",
+    price: 170000,
     image: "/images/cart_item.jpeg",
   },
   {
     id: 7,
-    name: "Product 7",
-    price: 700,
+    name: "Apple Magic Mouse",
+    price: 70000,
     image: "/images/cart_item.jpeg",
   },
   {
     id: 8,
-    name: "Product 8",
-    price: 800,
+    name: "Apple Watch Series 7",
+    price: 320000,
     image: "/images/cart_item.jpeg",
   },
   {
     id: 9,
-    name: "Product 9",
-    price: 900,
+    name: "Ipad Pro 256GB 2022",
+    price: 875000,
     image: "/images/cart_item.jpeg",
   },
   {
     id: 10,
-    name: "Product 10",
-    price: 1000,
+    name: "Onyx Studio 7",
+    price: 150000,
     image: "/images/cart_item.jpeg",
   },
 ];

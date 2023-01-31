@@ -54,7 +54,7 @@ const Header = () => {
 
   return (
     <header
-      className={`spaceOut px-10 py-8 select-none sticky top-0 shadow-md z-20 bg-main ${
+      className={`spaceOut px-10 py-8 select-none fixed top-0 shadow-md z-20 w-full bg-main ${
         showProductModal ? "pointer-events-none" : ""
       }`}
     >
@@ -62,17 +62,17 @@ const Header = () => {
         <img src="/images/cart_logo.png" alt="" />
         <p className="font-raleway text-3xl">Vezeti Store</p>
       </div>
-      <div className="center gap-4 rounded-lg px-4 py-1 bg-ter border border-secondary ">
+      <div className="center gap-4 rounded-lg px-4 py-1 bg-ter border border-secondary hidden md:inline-flex">
         <input
           type="text"
           onChange={handleChange}
           placeholder="Search for a product"
-          className="rounded-lg  outline-none text-lg bg-ter"
+          className="rounded-lg  outline-none text-lg bg-ter "
         />
         <MdOutlineSearch color="#A0C3D2" size={"1.6rem"} />
       </div>
-      <div className="spaceOut gap-8">
-        <div className="center gap-2 relative">
+      <div className="spaceOut gap-2 xsm:gap-8">
+        <div className="center xsm:gap-2 relative">
           <p>{currency}</p>
           {showModal ? (
             <div onClick={() => setShowModal(false)} className="cursor-pointer">

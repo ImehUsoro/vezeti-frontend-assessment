@@ -12,13 +12,17 @@ const Product = ({ product }: Props) => {
 
   return (
     <div
-      className="shadow-md center flex flex-col rounded-xl hover:shadow-xl transition-all duration-200 select-none bg-white max-h-[360px]"
+      className="shadow-md center flex flex-col rounded-xl hover:shadow-xl transition-all duration-200 select-none bg-white "
       onClick={() => {
         setSelectedProduct(product);
         setShowProductModal(true);
       }}
     >
-      <img src={image} alt="" className="rounded-t-xl cursor-pointer" />
+      <img
+        src={image}
+        alt=""
+        className="rounded-t-xl cursor-pointer w-full h-full"
+      />
       <div className="flex w-full justify-between px-4 py-2">
         <div className="cursor-pointer">
           <p>{name}</p>

@@ -25,7 +25,7 @@ const Products = () => {
       ) : (
         <>
           <div
-            className={`flex-1 place-items-center auto-cols-auto mb-10 mt-16 px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-6xl gap-x-10 gap-y-8 ${
+            className={`flex-1 place-items-center auto-cols-auto mb-10 mt-36 px-8 grid grid-cols-1 grid:grid-cols-2 lg:grid-cols-3 mx-auto max-w-6xl gap-x-10 gap-y-8 ${
               showProductModal ? "pointer-events-none" : ""
             }`}
           >

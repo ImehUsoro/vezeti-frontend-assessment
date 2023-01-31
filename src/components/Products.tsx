@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Product from "./Product";
 import { products } from "../ProductData/ProductData";
-import ProductsContext from "../context/ProductContext";
+import { useProductsContext } from "../context/ProductContext";
 
 const Products = () => {
-  const { searchInput, showProductModal } = useContext(ProductsContext);
+  const { searchInput, showProductModal } = useProductsContext();
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   useEffect(() => {

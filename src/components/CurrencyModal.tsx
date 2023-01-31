@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
-import ProductsContext from "../context/ProductContext";
+import { useProductsContext } from "../context/ProductContext";
 
 interface currencyProps {
   setShowModal: (value: boolean | ((prevVar: boolean) => boolean)) => void;
 }
 
 const CurrencyModal = ({ setShowModal }: currencyProps) => {
-  const { setCurrency } = useContext(ProductsContext);
+  const { setCurrency } = useProductsContext();
 
   return (
     <div className="rounded-md shadow-lg py-2 flex flex-col gap-2 bg-secondary text-ter z-20 select-none">

@@ -3,10 +3,14 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import ProductModal from "./components/ProductModal";
 import Products from "./components/Products";
-import ProductsContext from "./context/ProductContext";
+import { ProductProvider } from "./context/ProductContext";
+import { ProductProps } from "./typings/types";
 
 function App() {
   const [currency, setCurrency] = useState("₦");
+  const [searchInput, setSearchInput] = useState("");
+  const [showProductModal, setShowProductModal] = useState(false);
+  const [cartItems, setCartItems] = useState([] as ProductProps[]);
   const [selectedProduct, setSelectedProduct] = useState({
     id: 0,
     name: "",
@@ -14,12 +18,8 @@ function App() {
     image: "",
   });
 
-  const [cartItems, setCartItems] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
-  const [showProductModal, setShowProductModal] = useState(false);
-
   return (
-    <ProductsContext.Provider
+    <ProductProvider
       value={{
         currency,
         setCurrency,
@@ -49,7 +49,7 @@ function App() {
         </div>
         {showProductModal && <ProductModal />}
       </div>
-    </ProductsContext.Provider>
+    </ProductProvider>
   );
 }
 

@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
-import ProductsContext from "../context/ProductContext";
+import { useProductsContext } from "../context/ProductContext";
 import { ProductProps } from "../typings/types";
 import { filterCartItems } from "../utils/utils";
 
 const CheckoutModal = () => {
-  const { cartItems, currency } = useContext(ProductsContext);
+  const { cartItems, currency } = useProductsContext();
 
   const unique = filterCartItems(cartItems, (it: ProductProps) => it.name);
 

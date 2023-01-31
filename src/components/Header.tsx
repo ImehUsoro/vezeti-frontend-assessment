@@ -1,13 +1,7 @@
-import React, {
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-  MutableRefObject,
-} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import { MdOutlineSearch } from "react-icons/md";
-import ProductsContext from "../context/ProductContext";
+import { useProductsContext } from "../context/ProductContext";
 import CurrencyModal from "./CurrencyModal";
 import CheckoutModal from "./CheckoutModal";
 
@@ -19,7 +13,7 @@ const Header = () => {
   const checkoutRef = useRef<HTMLDivElement>(null);
 
   const { setSearchInput, cartItems, showProductModal, currency } =
-    useContext(ProductsContext);
+    useProductsContext();
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget;

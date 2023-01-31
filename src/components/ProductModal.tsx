@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import ProductsContext from "../context/ProductContext";
+import { useProductsContext } from "../context/ProductContext";
 
 interface ProductProps {
   id: number;
@@ -10,7 +9,7 @@ interface ProductProps {
 
 const ProductModal = () => {
   const { selectedProduct, setShowProductModal, setCartItems } =
-    useContext(ProductsContext);
+    useProductsContext();
   const { name, price } = selectedProduct;
 
   return (

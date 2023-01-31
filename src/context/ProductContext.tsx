@@ -12,6 +12,8 @@ interface ProductsContextProps {
   setSearchInput: React.Dispatch<React.SetStateAction<string>>;
   showProductModal: boolean;
   setShowProductModal: React.Dispatch<React.SetStateAction<boolean>>;
+  showCheckoutModal: boolean;
+  setShowCheckoutModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const ProductsContext = createContext<ProductsContextProps>(null as any);

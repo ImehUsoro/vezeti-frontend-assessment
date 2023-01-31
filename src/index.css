@@ -20,4 +20,7 @@ body {
   .currencyStyle {
     @apply hover:shadow-md px-6 cursor-pointer transition-all ease-out duration-500;
   }
+  .productPrice {
+    @apply font-bold text-center xxsm:text-left
+  }
 }

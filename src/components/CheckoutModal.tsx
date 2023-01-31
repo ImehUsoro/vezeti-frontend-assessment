@@ -41,7 +41,7 @@ const CheckoutModal = () => {
                     460
                   )
                     .toFixed(2)
-                    .toLocaleString()}`}
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
                 </p>
               ) : currency === "€" ? (
                 <p className="inline-block">
@@ -53,7 +53,7 @@ const CheckoutModal = () => {
                     500
                   )
                     .toFixed(2)
-                    .toLocaleString()}`}
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
                 </p>
               ) : currency === "£" ? (
                 <p className="inline-block">
@@ -65,7 +65,7 @@ const CheckoutModal = () => {
                     560
                   )
                     .toFixed(2)
-                    .toLocaleString()}`}
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
                 </p>
               ) : (
                 <p className="inline-block">
@@ -77,7 +77,7 @@ const CheckoutModal = () => {
                     3
                   )
                     .toFixed(2)
-                    .toLocaleString()}`}
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
                 </p>
               )}
             </div>
@@ -106,7 +106,7 @@ const CheckoutModal = () => {
                   ) / 460
                 )
                   .toFixed(2)
-                  .toLocaleString()}`}
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
               </p>
             ) : currency === "€" ? (
               <p className="text-center">
@@ -117,7 +117,7 @@ const CheckoutModal = () => {
                   ) / 500
                 )
                   .toFixed(2)
-                  .toLocaleString()}`}
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
               </p>
             ) : currency === "£" ? (
               <p className="text-center">
@@ -128,7 +128,7 @@ const CheckoutModal = () => {
                   ) / 500
                 )
                   .toFixed(2)
-                  .toLocaleString()}`}
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
               </p>
             ) : (
               <p className="text-center">
@@ -139,7 +139,7 @@ const CheckoutModal = () => {
                   ) / 3
                 )
                   .toFixed(2)
-                  .toLocaleString()}`}
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
               </p>
             )}
           </div>

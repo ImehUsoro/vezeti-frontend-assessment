@@ -8,7 +8,7 @@ interface ProductProps {
 }
 
 const ProductModal = () => {
-  const { selectedProduct, setShowProductModal, setCartItems } =
+  const { selectedProduct, setShowProductModal, setCartItems, currency } =
     useProductsContext();
   const { name, price } = selectedProduct;
 
@@ -21,7 +21,25 @@ const ProductModal = () => {
         </div>
         <div>
           <p className="text-center">Price</p>
-          <p className="text-center font-bold">₦ {price.toLocaleString()}</p>
+          <p className="text-center font-bold">
+            {currency === "₦"
+              ? `₦ ${price.toLocaleString()}`
+              : currency === "€"
+              ? `€ ${(price / 500)
+                  .toFixed(2)
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+              : currency === "£"
+              ? `£ ${(price / 570)
+                  .toFixed(2)
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+              : currency === "$"
+              ? `$ ${(price / 460)
+                  .toFixed(2)
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+              : `¥ ${(price / 3)
+                  .toFixed(2)
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
+          </p>
         </div>
       </div>
       <div className="flex flex-col gap-5 center">

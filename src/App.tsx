@@ -11,6 +11,7 @@ function App() {
   const [searchInput, setSearchInput] = useState("");
   const [showProductModal, setShowProductModal] = useState(false);
   const [cartItems, setCartItems] = useState([] as ProductProps[]);
+  const [showCheckoutModal, setShowCheckoutModal] = useState<boolean>(false);
   const [selectedProduct, setSelectedProduct] = useState({
     id: 0,
     name: "",
@@ -31,6 +32,8 @@ function App() {
         setSearchInput,
         showProductModal,
         setShowProductModal,
+        showCheckoutModal,
+        setShowCheckoutModal,
       }}
     >
       <div

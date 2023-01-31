@@ -11,7 +11,6 @@ const ProductsContext = createContext({
     image: "",
   },
   setSelectedProduct: (products: ProductProps) => {},
-  // cartItems: [] as ProductProps[],
   cartItems: [] as any,
   setCartItems: (products: any) => {},
   searchInput: "",

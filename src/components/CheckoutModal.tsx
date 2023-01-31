@@ -9,8 +9,10 @@ const CheckoutModal = () => {
   const unique = filterCartItems(cartItems, (it: ProductProps) => it.name);
 
   return (
-    <div className="border bg-quart py-4 rounded-md w-96">
-      <p className="text-center mb-4">Items in Cart</p>
+    <div className="border bg-quart py-4 rounded-md flex flex-col w-96">
+      <p className={`text-center ${cartItems.length > 0 ? "mb-4" : ""} `}>
+        {cartItems.length > 0 ? "Your Cart" : "Your Cart is Empty"}
+      </p>
       {cartItems.length > 0
         ? unique.map((item) => (
             <div className="flex justify-between gap-4 px-4" key={item.id}>
@@ -82,85 +84,79 @@ const CheckoutModal = () => {
             </div>
           ))
         : null}
-      <div className="border border-secondary mt-3"></div>
-      <div className="px-4 mt-3 flex justify-between items-center">
-        <p className="">Total</p>
-        {/* <p>1000</p> */}
-        {currency === "₦" ? (
-          <p className="text-center">
-            {`₦ ${cartItems
-              .reduce((acc: number, item: ProductProps) => acc + item.price, 0)
-              .toLocaleString()}`}
-          </p>
-        ) : currency === "$" ? (
-          <p className="text-center">
-            {`$ ${(
-              cartItems.reduce(
-                (acc: number, item: ProductProps) => acc + item.price,
-                0
-              ) / 460
-            )
-              .toFixed(2)
-              .toLocaleString()}`}
-          </p>
-        ) : currency === "€" ? (
-          <p className="text-center">
-            {`€ ${(
-              cartItems.reduce(
-                (acc: number, item: ProductProps) => acc + item.price,
-                0
-              ) / 500
-            )
-              .toFixed(2)
-              .toLocaleString()}`}
-          </p>
-        ) : currency === "£" ? (
-          <p className="text-center">
-            {`£ ${(
-              cartItems.reduce(
-                (acc: number, item: ProductProps) => acc + item.price,
-                0
-              ) / 500
-            )
-              .toFixed(2)
-              .toLocaleString()}`}
-          </p>
-        ) : (
-          <p className="text-center">
-            {`¥ ${(
-              cartItems.reduce(
-                (acc: number, item: ProductProps) => acc + item.price,
-                0
-              ) / 3
-            )
-              .toFixed(2)
-              .toLocaleString()}`}
-          </p>
-        )}
-      </div>
+      {cartItems.length > 0 && (
+        <>
+          <div className="border border-secondary mt-3"></div>
+          <div className="px-4 mt-3 flex justify-between items-center">
+            <p className="">Total</p>
+            {currency === "₦" ? (
+              <p className="text-center">
+                {`₦ ${cartItems
+                  .reduce(
+                    (acc: number, item: ProductProps) => acc + item.price,
+                    0
+                  )
+                  .toLocaleString()}`}
+              </p>
+            ) : currency === "$" ? (
+              <p className="text-center">
+                {`$ ${(
+                  cartItems.reduce(
+                    (acc: number, item: ProductProps) => acc + item.price,
+                    0
+                  ) / 460
+                )
+                  .toFixed(2)
+                  .toLocaleString()}`}
+              </p>
+            ) : currency === "€" ? (
+              <p className="text-center">
+                {`€ ${(
+                  cartItems.reduce(
+                    (acc: number, item: ProductProps) => acc + item.price,
+                    0
+                  ) / 500
+                )
+                  .toFixed(2)
+                  .toLocaleString()}`}
+              </p>
+            ) : currency === "£" ? (
+              <p className="text-center">
+                {`£ ${(
+                  cartItems.reduce(
+                    (acc: number, item: ProductProps) => acc + item.price,
+                    0
+                  ) / 500
+                )
+                  .toFixed(2)
+                  .toLocaleString()}`}
+              </p>
+            ) : (
+              <p className="text-center">
+                {`¥ ${(
+                  cartItems.reduce(
+                    (acc: number, item: ProductProps) => acc + item.price,
+                    0
+                  ) / 3
+                )
+                  .toFixed(2)
+                  .toLocaleString()}`}
+              </p>
+            )}
+          </div>
+          <button
+            className="py-2 bg-emerald-700 rounded-md mx-auto w-1/2 mt-3 text-quart"
+            onClick={() => {
+              window.alert("Thank you for shopping with us");
+              window.location.reload();
+            }}
+          >
+            Checkout
+          </button>
+        </>
+      )}
     </div>
   );
 };
 
 export default CheckoutModal;
-
-//   {currency === "₦" ? (
-//                 <p className="text-center">
-//                     {`₦ ${cartItems.reduce(
-//                         (acc: number, item: ProductProps) => acc + item.price,
-//                         0
-//                     ).toLocaleString()}`}
-//                 </p>
-//             ) : currency === "$" ? (
-//                 <p className="text-center">
-//                     {`$ ${(
-//                         cartItems.reduce(
-//                             (acc: number, item: ProductProps) => acc + item.price,
-//                             0
-//                         ) / 460
-//                     )
-
-//                         .toFixed(2)
-//                         .toLocaleString()}`}
-//                 </p>
-//             )

@@ -60,13 +60,13 @@ const Header = () => {
 
   return (
     <header
-      className={`spaceOut px-10 py-8 select-none ${
+      className={`spaceOut px-10 py-8 select-none sticky top-0 shadow-md z-20 bg-main ${
         showProductModal ? "pointer-events-none" : ""
       }`}
     >
-      <div className="flex gap-2">
+      <div className="flex gap-2 cursor-pointer">
         <img src="/images/cart_logo.png" alt="" />
-        <p className="font-raleway text-3xl cursor-pointer">Vezeti Store</p>
+        <p className="font-raleway text-3xl">Vezeti Store</p>
       </div>
       <div className="center gap-4 rounded-lg px-4 py-1 bg-ter border border-secondary ">
         <input
@@ -82,11 +82,11 @@ const Header = () => {
           <p>{currency}</p>
           {showModal ? (
             <div onClick={() => setShowModal(false)} className="cursor-pointer">
-              <RiArrowDropUpLine />
+              <RiArrowDropUpLine size={"1.6rem"} />
             </div>
           ) : (
             <div onClick={() => setShowModal(true)} className="cursor-pointer">
-              <RiArrowDropDownLine />
+              <RiArrowDropDownLine size={"1.6rem"} />
             </div>
           )}
           {showModal && (

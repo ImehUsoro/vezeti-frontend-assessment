@@ -6,7 +6,7 @@ import Products from "./components/Products";
 import ProductsContext from "./context/ProductContext";
 
 function App() {
-  const [currency, setCurrency] = useState("$");
+  const [currency, setCurrency] = useState("₦");
   const [selectedProduct, setSelectedProduct] = useState({
     id: 0,
     name: "",

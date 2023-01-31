@@ -15,8 +15,8 @@ const Header = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showCheckoutModal, setShowCheckoutModal] = useState<boolean>(false);
 
-  const ref = useRef() as MutableRefObject<HTMLDivElement>;
-  const checkoutRef = useRef() as MutableRefObject<HTMLDivElement>;
+  const ref = useRef<HTMLDivElement>(null);
+  const checkoutRef = useRef<HTMLDivElement>(null);
 
   const { setSearchInput, cartItems, showProductModal, currency } =
     useContext(ProductsContext);
@@ -27,8 +27,8 @@ const Header = () => {
   };
 
   useEffect(() => {
-    const checkIfClickedOutside = (e: any) => {
-      if (showModal && ref.current && !ref.current.contains(e.target)) {
+    const checkIfClickedOutside = (e: MouseEvent) => {
+      if (showModal && ref.current && !ref.current.contains(e.target as Node)) {
         setShowModal(false);
       }
     };
@@ -41,11 +41,11 @@ const Header = () => {
   }, [showModal]);
 
   useEffect(() => {
-    const checkIfClickedOutside = (e: any) => {
+    const checkIfClickedOutside = (e: MouseEvent) => {
       if (
         showCheckoutModal &&
         checkoutRef.current &&
-        !checkoutRef.current.contains(e.target)
+        !checkoutRef.current.contains(e.target as Node)
       ) {
         setShowCheckoutModal(false);
       }

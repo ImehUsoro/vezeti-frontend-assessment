@@ -19,8 +19,11 @@ module.exports = {
       ter: "#F7F5EB",
       quart: "#EAE0DA",
     },
+    extend: {
+      screens: {
+        desktop: "1440px",
+      },
+    },
   },
-
-  extend: {},
   plugins: [],
 };

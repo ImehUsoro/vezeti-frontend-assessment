@@ -34,7 +34,7 @@ function App() {
       }}
     >
       <div
-        className={`w-full max-w-[1440px] mx-auto min-h-screen flex flex-col relative ${
+        className={`w-full max-w-screen-desktop desktop:max-w-full mx-auto min-h-screen flex flex-col relative ${
           showProductModal ? "overflow-hidden" : ""
         }`}
       >

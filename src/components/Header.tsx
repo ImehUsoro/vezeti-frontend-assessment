@@ -65,7 +65,7 @@ const Header = () => {
         <img src="/images/cart_logo.png" alt="" className="w-6 xsm:w-auto" />
         <p className="font-raleway text-xl xsm:text-3xl">Vezeti Store</p>
       </div>
-      <div className="center gap-4 rounded-lg px-4 py-1 bg-ter border border-secondary hidden md:inline-flex">
+      <div className="center gap-4 rounded-lg px-4 py-1 bg-ter border border-secondary hidden md:inline-flex shadow-lg">
         <input
           type="text"
           onChange={handleChange}

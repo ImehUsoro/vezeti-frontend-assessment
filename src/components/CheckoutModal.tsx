@@ -17,12 +17,10 @@ const CheckoutModal = () => {
   };
 
   const handleDecrease = (item: ProductProps) => {
-    const newCartItems = [
-      ...cartItems.filter((it: ProductProps) => it.id !== item.id),
-    ];
-    const products = cartItems.filter((it: ProductProps) => it.id === item.id);
-    products.pop();
-    setCartItems([...newCartItems, ...products]);
+    const newCartItems = [...cartItems];
+    const lastIndexOfProduct = newCartItems.lastIndexOf(item);
+    newCartItems.splice(lastIndexOfProduct, 1);
+    setCartItems(newCartItems);
   };
 
   return (

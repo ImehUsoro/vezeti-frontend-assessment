@@ -24,16 +24,23 @@ const CheckoutModal = () => {
   };
 
   return (
-    <div className="border bg-quart py-4 rounded-md flex flex-col px-4 w-max">
-      <p className={`text-center ${cartItems.length > 0 ? "mb-4" : ""} `}>
+    <div className="border bg-quart py-4 rounded-md flex flex-col xxxsm:px-4 w-max">
+      <p
+        className={`text-center text-lg font-semibold ${
+          cartItems.length > 0 ? "mb-4" : ""
+        } `}
+      >
         {cartItems.length > 0 ? "Your Cart" : "Your Cart is Empty"}
       </p>
 
       <div className="flex flex-col gap-4">
         {cartItems.length > 0
           ? unique.map((item) => (
-              <div className="flex justify-between gap-4 px-4" key={item.id}>
-                <span className="flex center gap-3">
+              <div
+                className="flex flex-col spaceOut gap-4 xsm:flex-row xsm:gap-8 px-4"
+                key={item.id}
+              >
+                <span className="flex flex-col spaceOut w-[200px] mini:flex-row mini:w-[300px] gap-3">
                   <p>{item.name}</p>
                   <div className="flex center gap-2">
                     <button

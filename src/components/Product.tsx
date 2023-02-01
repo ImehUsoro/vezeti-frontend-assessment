@@ -26,7 +26,7 @@ const Product = ({ product }: Props) => {
       />
       <div className="flex w-full flex-col xxsm:flex-row justify-between items-center px-4 py-2 gap-4 xxsm:gap-0">
         <div className="cursor-pointer">
-          <p className="">{name}</p>
+          <p className="text-center">{name}</p>
           <p className="productPrice">{convertToCurrency(price, currency)}</p>
         </div>
         <img

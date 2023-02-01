@@ -21,9 +21,10 @@ module.exports = {
     },
     extend: {
       screens: {
-        xxsm: "310px",
+        xxxsm: "310px",
         xxsm: "380px",
         xsm: "430px",
+        mini: "600px",
         grid: "712px",
         desktop: "1440px",
       },

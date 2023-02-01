@@ -57,7 +57,7 @@ const Header = () => {
 
   return (
     <header
-      className={`spaceOut px-10 py-8 select-none fixed top-0 shadow-md z-20 w-full bg-main ${
+      className={`spaceOut px-6 xxxsm:px-10 py-8 select-none fixed top-0 shadow-md z-20 w-full bg-main ${
         showProductModal ? "pointer-events-none" : ""
       }`}
     >

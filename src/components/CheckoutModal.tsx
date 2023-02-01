@@ -45,13 +45,13 @@ const CheckoutModal = () => {
                   <div className="flex center gap-2">
                     <button
                       onClick={() => handleDecrease(item)}
-                      className="border border-secondary px-2 bg-white"
+                      className="border border-secondary px-2 bg-white hover:bg-gray-400 active:bg-gray-600 transition-all duration-200 ease-out "
                     >
                       -
                     </button>
                     {`${findHowManyItems(cartItems, item.name)}`}
                     <button
-                      className="border border-secondary px-2 bg-white"
+                      className="border border-secondary px-2 bg-white hover:bg-gray-400 active:bg-gray-600 transition-all duration-200 ease-out"
                       onClick={() => handleIncrease(item)}
                     >
                       +
@@ -73,7 +73,7 @@ const CheckoutModal = () => {
             </p>
           </div>
           <button
-            className="py-2 bg-emerald-700 rounded-md mx-auto w-1/2 mt-3 text-quart"
+            className="py-2 bg-emerald-500 hover:bg-emerald-600 rounded-md mx-auto w-1/2 mt-3 text-quart transition-all duration-200 ease-out active:bg-black"
             onClick={() => {
               window.alert("Thank you for shopping with us");
               window.location.reload();

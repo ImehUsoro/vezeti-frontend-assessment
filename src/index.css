@@ -21,6 +21,12 @@ body {
     @apply hover:shadow-md px-6 cursor-pointer transition-all ease-out duration-500;
   }
   .productPrice {
-    @apply font-bold text-center xxsm:text-left
+    @apply font-bold text-center xxsm:text-left;
+  }
+  .cancelBtn {
+    @apply bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-md transition-all duration-200 ease-out active:bg-red-800;
+  }
+  .addBtn {
+    @apply bg-green-600 hover:bg-green-700 active:bg-green-800 text-white px-3 py-2 rounded-md transition-all duration-200 ease-out;
   }
 }

@@ -15,7 +15,7 @@ const ProductModal = () => {
 
   return (
     <div className="fixed top-1/2 left-1/2 -translate-y-2/4 -translate-x-2/4 bg-white flex flex-col gap-5 max-w-full max-h-full rounded-lg px-8 py-4 z-10 shadow-lg">
-      <div className="flex gap-4 center">
+      <div className="flex flex-col grid:flex-row gap-4 center">
         <div>
           <p className="text-center">Product to add</p>
           <p className="text-center font-bold">{name}</p>
@@ -28,11 +28,13 @@ const ProductModal = () => {
         </div>
       </div>
       <div className="flex flex-col gap-5 center">
-        <p>Are you sure you want to add this item to your cart?</p>
+        <p className="text-center">
+          Are you sure you want to add this item to your cart?
+        </p>
         <div className="flex gap-8">
           <button
             onClick={() => setShowProductModal(false)}
-            className="bg-red-600 px-3 py-2 rounded-md"
+            className="cancelBtn"
           >
             NO
           </button>
@@ -44,7 +46,7 @@ const ProductModal = () => {
                 selectedProduct,
               ]);
             }}
-            className="bg-green-500 px-3 py-2 rounded-md"
+            className="addBtn"
           >
             YES
           </button>

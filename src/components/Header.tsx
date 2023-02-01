@@ -39,23 +39,27 @@ const Header = () => {
     };
   }, [showModal]);
 
-  useEffect(() => {
-    const checkIfClickedOutside = (e: MouseEvent) => {
-      if (
-        showCheckoutModal &&
-        checkoutRef.current &&
-        !checkoutRef.current.contains(e.target as Node)
-      ) {
-        setShowCheckoutModal(false);
+  function useOutsideAlerter(ref: React.RefObject<HTMLDivElement>) {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event: MouseEvent) {
+        if (ref.current && !ref.current.contains(event.target as Node)) {
+          // alert("You clicked outside of me!");
+          setShowCheckoutModal(false);
+        }
       }
-    };
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  }
 
-    document.addEventListener("mousedown", checkIfClickedOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", checkIfClickedOutside);
-    };
-  }, [showCheckoutModal]);
+  useOutsideAlerter(checkoutRef);
 
   return (
     <header
@@ -111,7 +115,11 @@ const Header = () => {
             )}
           </div>
           {showCheckoutModal && (
-            <div className="absolute top-12 -right-2" ref={checkoutRef}>
+            <div
+              className="absolute top-12 -right-2"
+              ref={checkoutRef}
+              onClick={(e) => e.stopPropagation()}
+            >
               <CheckoutModal />
             </div>
           )}

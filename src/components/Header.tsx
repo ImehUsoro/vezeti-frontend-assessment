@@ -41,19 +41,13 @@ const Header = () => {
 
   function useOutsideAlerter(ref: React.RefObject<HTMLDivElement>) {
     useEffect(() => {
-      /**
-       * Alert if clicked on outside of element
-       */
       function handleClickOutside(event: MouseEvent) {
         if (ref.current && !ref.current.contains(event.target as Node)) {
-          // alert("You clicked outside of me!");
           setShowCheckoutModal(false);
         }
       }
-      // Bind the event listener
       document.addEventListener("mousedown", handleClickOutside);
       return () => {
-        // Unbind the event listener on clean up
         document.removeEventListener("mousedown", handleClickOutside);
       };
     }, [ref]);
@@ -93,7 +87,11 @@ const Header = () => {
             </div>
           )}
           {showModal && (
-            <div ref={ref} className="absolute top-10 -right-1">
+            <div
+              ref={ref}
+              onClick={(e) => e.stopPropagation()}
+              className="absolute top-10 -right-1"
+            >
               <CurrencyModal setShowModal={setShowModal} />
             </div>
           )}

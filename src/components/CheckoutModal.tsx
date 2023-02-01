@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { useProductsContext } from "../context/ProductContext";
 import { ProductProps } from "../typings/types";
 import {
@@ -8,60 +7,26 @@ import {
 } from "../utils/helperFunctions";
 import { filterCartItems } from "../utils/utils";
 
-// interface CheckoutModalProps {
-//   // ref: React.RefObject<HTMLDivElement>;
-// }
 const CheckoutModal = () => {
-  const { cartItems, currency, showCheckoutModal, setShowCheckoutModal } =
-    useProductsContext();
-  const checkoutRef = useRef<HTMLDivElement>(null);
+  const { cartItems, currency, setCartItems } = useProductsContext();
   const unique = filterCartItems(cartItems, (it: ProductProps) => it.name);
 
-  function useOutsideAlerter(ref: React.RefObject<HTMLDivElement>) {
-    useEffect(() => {
-      /**
-       * Alert if clicked on outside of element
-       */
-      function handleClickOutside(event: MouseEvent) {
-        if (ref.current && !ref.current.contains(event.target as Node)) {
-          // alert("You clicked outside of me!");
-          setShowCheckoutModal(false);
-        }
-      }
-      // Bind the event listener
-      document.addEventListener("mousedown", handleClickOutside);
-      return () => {
-        // Unbind the event listener on clean up
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
-    }, [ref]);
-  }
+  const handleIncrease = (item: ProductProps) => {
+    const product = cartItems.find((it: ProductProps) => it.id === item.id);
+    return product ? setCartItems((prev) => [...prev, product]) : null;
+  };
 
-  useOutsideAlerter(checkoutRef);
-
-  // useEffect(() => {
-  //   const checkIfClickedOutside = (e: MouseEvent) => {
-  //     if (
-  //       showCheckoutModal &&
-  //       checkoutRef.current &&
-  //       !checkoutRef.current.contains(e.target as Node)
-  //     ) {
-  //       showCheckoutModal && setShowCheckoutModal(false);
-  //     }
-  //   };
-
-  //   document.addEventListener("mousedown", checkIfClickedOutside);
-
-  //   return () => {
-  //     document.removeEventListener("mousedown", checkIfClickedOutside);
-  //   };
-  // }, [showCheckoutModal]);
+  const handleDecrease = (item: ProductProps) => {
+    const newCartItems = [
+      ...cartItems.filter((it: ProductProps) => it.id !== item.id),
+    ];
+    const products = cartItems.filter((it: ProductProps) => it.id === item.id);
+    products.pop();
+    setCartItems([...newCartItems, ...products]);
+  };
 
   return (
-    <div
-      className="border bg-quart py-4 rounded-md flex flex-col px-4 w-max"
-      // ref={checkoutRef}
-    >
+    <div className="border bg-quart py-4 rounded-md flex flex-col px-4 w-max">
       <p className={`text-center ${cartItems.length > 0 ? "mb-4" : ""} `}>
         {cartItems.length > 0 ? "Your Cart" : "Your Cart is Empty"}
       </p>
@@ -73,9 +38,19 @@ const CheckoutModal = () => {
                 <span className="flex center gap-3">
                   <p>{item.name}</p>
                   <div className="flex center gap-2">
-                    <button className="border border-black px-2">-</button>
+                    <button
+                      onClick={() => handleDecrease(item)}
+                      className="border border-secondary px-2 bg-white"
+                    >
+                      -
+                    </button>
                     {`${findHowManyItems(cartItems, item.name)}`}
-                    <button className="border border-black px-2">+</button>
+                    <button
+                      className="border border-secondary px-2 bg-white"
+                      onClick={() => handleIncrease(item)}
+                    >
+                      +
+                    </button>
                   </div>
                 </span>
                 <p>{findTotalForEachProduct(cartItems, currency, item.name)}</p>

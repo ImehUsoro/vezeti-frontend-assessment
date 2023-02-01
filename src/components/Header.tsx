@@ -89,7 +89,7 @@ const Header = () => {
             </div>
           )}
           {showModal && (
-            <div ref={ref} className="absolute top-8">
+            <div ref={ref} className="absolute top-10 -right-1">
               <CurrencyModal setShowModal={setShowModal} />
             </div>
           )}

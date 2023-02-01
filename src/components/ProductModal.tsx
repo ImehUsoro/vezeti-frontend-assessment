@@ -1,4 +1,5 @@
 import { useProductsContext } from "../context/ProductContext";
+import { convertToCurrency } from "../utils/helperFunctions";
 
 interface ProductProps {
   id: number;
@@ -22,23 +23,7 @@ const ProductModal = () => {
         <div>
           <p className="text-center">Price</p>
           <p className="text-center font-bold">
-            {currency === "₦"
-              ? `₦ ${price.toLocaleString()}`
-              : currency === "€"
-              ? `€ ${(price / 500)
-                  .toFixed(2)
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
-              : currency === "£"
-              ? `£ ${(price / 570)
-                  .toFixed(2)
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
-              : currency === "$"
-              ? `$ ${(price / 460)
-                  .toFixed(2)
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
-              : `¥ ${(price / 3)
-                  .toFixed(2)
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
+            {convertToCurrency(price, currency)}
           </p>
         </div>
       </div>
